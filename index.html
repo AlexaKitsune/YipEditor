@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="./style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testing eval securely</title>
+        <script src="./codemirror/lib/codemirror.js"></script>
+        <link rel="stylesheet" href="./codemirror/lib/codemirror.css">
+        <script src="./codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="./codemirror/mode/xml/xml.js"></script>
+        <script src="./codemirror/mode/javascript/javascript.js"></script>
+        <script src="./codemirror/mode/css/css.js"></script>
+        <link rel="stylesheet" type="text/css" href="./codemirror/theme/dracula.css">
+</head>
+<body>
+
+    <style>
+        body{
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--blackground);
+
+        }
+
+        #testHere{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        @media all and (max-width:780px){
+
+            body{
+                height: fit-content;
+            }
+        
+            #testHere{
+                flex-direction: column;
+                min-height: 185vw;
+            }
+        
+        }
+    </style>
+
+    <container id="testHere">
+        <!--<button id="testNotStop">&nbsp; Get code (Only from JS editor) &nbsp;</button>-->
+    </container>
+    
+
+    <script src="./YipEditor.js"></script>
+    <script>
+
+        /* Mode JavaScript */
+        let editor1 = new YipEditor("primereditor", true, "testHere", "javascript");
+        editor1.runEditor();
+
+        /* Mode HTML */
+        let editor2 = new YipEditor("segundoeditor", true, "testHere", "htmlmixed");
+        editor2.runEditor();
+
+        /* Get the code in the editor */
+        /*document.getElementById('testNotStop').onclick = function(){
+            alert(
+                editor1.getCode()
+            );
+        };*/
+
+        console.log("🦊 End of code.");
+    </script>
+
+</body>
+</html>

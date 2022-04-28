@@ -1,0 +1,184 @@
+:root{
+    --mainColor: #8800ff;
+    --blueColor: #00ffff;
+    --blackground: #232323;
+    --neuShadowOutWhite: -5px -5px 10px rgba(100, 100, 100, 0.5);
+    --neuShadowOutBlack: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    --neuShadowInBlack: 5px 5px 10px rgba(0, 0, 0, 0.7) inset;
+    --neuShadowInWhite: -5px -5px 10px rgba(100, 100, 100, 0.5) inset;
+    --neuShadow: -5px -5px 10px rgba(100, 100, 100, 0.5),
+                    5px 5px 10px rgba(0, 0, 0, 0.7),
+                    5px 5px 10px rgba(0, 0, 0, 0.7) inset,
+                    -5px -5px 10px rgba(100, 100, 100, 0.5) inset;
+    --letterShadow: 5px 5px 10px rgba(0, 0, 0, 1);
+    --fontTitle: 'Share Tech Mono', monospace;
+    --fontContent: 'Roboto Mono', monospace;
+    --neuPull: -0.4vw -0.4vw 0.8vw rgba(110, 110, 110, 0.6),
+                0.4vw 0.4vw 0.8vw rgba(0, 0, 0, 0.8);
+    --neuPush: -0.4vw -0.4vw 1.2vw rgba(0, 0, 0, 0.8),
+                0.4vw 0.4vw 1.2vw rgba(110, 110, 110, 0.6);
+}
+
+button{
+    height: 3vw;
+    font-size: var(--fontTitle);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    color: white;
+    background-color: var(--mainColor);
+    transition: transform 0.1s;
+    border-radius: 5px;
+}
+button:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+    transition: transform 0.1s;
+}
+button:active{
+    background-color: white;
+    color: var(--mainColor);
+    border:1px solid var(--mainColor);
+    box-shadow: var(--neuPush);
+}
+
+/* Styles for YipEditor */        
+.yipMaster{
+    font-size: 2ch;
+    position: relative;
+    border: 0px solid var(--blackground);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    box-shadow: var(--neuPull);
+    background-color: white;
+    border-radius: 5px;   
+        width: 30vw;
+        height: 30vw;
+}
+
+.yipRun{ 
+    border: 2px solid white; 
+    position: absolute;
+    border-radius: 100%;
+    width: 4vw;
+    height: 4vw;
+    margin-top: -2vw;
+    top: 82%;
+    right: 6%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        font-size: 2vw;
+        padding-left: 0.8vw;
+}
+.yipRun:active{
+    box-shadow: var(--neuPush);
+    transform: scale(1);
+}
+
+.yipConsole{
+    position: absolute;
+    bottom: 1%;
+
+    border: 2px solid white; 
+    background-color: rgb(30,30,30);
+    color: white;
+    width: calc(98% - 1ch);
+    height: 16%;
+    z-index: 1;
+    margin-bottom: -2px;
+    padding-left: 1ch;
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+
+    word-wrap:break-word;
+    overflow-wrap: anywhere;
+    overflow-y: auto;
+
+    transition: all 0.5s;
+}
+.yipConsole:hover{
+    cursor: pointer;
+}
+.yipConsole:hover{
+    /*opacity: 0.5;
+    /*width: 80vw;*/
+    height: 29.4vw;
+    z-index: 4;
+    transition: all 1s;
+}
+
+.CodeMirror{
+    position: absolute;
+    top: -8.5%;
+
+    width: 98%;
+    min-height: calc(80.9% - 1ch);
+    max-height: calc(81% - 1ch);
+    resize: none;
+    z-index: 0;
+    padding-bottom: 1ch;
+}
+
+.yipInvisible{
+    display: none;
+}
+
+.yipImg-js, .yipImg-html{
+    position: absolute;
+    z-index: 3;
+    filter: invert(100%);
+    top: 1.5ch;
+    right: 1.5ch;
+    transition: opacity 0.5s;
+}
+.yipImg-js{
+    width: 2.2ch;
+}
+.yipImg-html{
+    width: 3ch;
+}
+.yipImg-js:hover, .yipImg-html:hover{
+    opacity: 25%;
+    transition: opacity 0.5s;
+}
+.yipImg-js:active, .yipImg-html:active{
+    width: 10ch;
+    opacity: 100%;
+    transition: all 0.1s;
+}
+
+/* Responsive: */
+@media all and (max-width:780px){
+
+    :root{
+        --neuPull: -0.4vw -0.4vw 0.8vw rgba(110, 110, 110, 0.6),
+                    0.4vw 0.4vw 0.8vw rgba(0, 0, 0, 0.8);
+        --neuPush: -0.5vw -0.9vw 2.7vw rgba(0, 0, 0, 0.8),
+                    0.5vw 0.9vw 2.7vw rgba(110, 110, 110, 0.6);
+    }
+
+    /* Styles for YipEditor */
+    .yipMaster{
+        font-size: 1.8ch; 
+            width: 65vw;
+            height: 65vw;
+    }
+
+    .yipRun{ 
+        width: 9vw;
+        height: 9vw;
+        margin-top: -4vw;
+            font-size: 4vw;
+    }
+
+    .yipConsole:hover{
+        height: 63.5vw;
+    }
+    
+}
